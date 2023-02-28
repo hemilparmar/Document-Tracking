@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document Analytics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container my-4">
+    <h1>Document Analytics</h1>
+
+
+    
+      <button onclick="timecount()" ><a href="pages.html" target="_blank" style="text-decoration: none;">Open Document</a></button>
+      
+      <!-- <iframe src="viewer.html?file=test.docx" width="100%" height="600"></iframe> -->
+
+      <!-- <iframe src = "/viewerjs-0.5.8/ViewerJS/#../test.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe> -->
+
+    <!-- <embed src="test.pptx" width="100%" height="700"> -->
+  </div>
+  <!-- <iframe src="test.docx" width="100%" height="700"></iframe> -->
+  <!-- <a href="test.docx">Word</a> -->
+
+
+<script>
+  function timecount(){
+    console.log("timecount on");
+    const now = new Date();
+    console.log(`Current time: ${now}`);
+    // Start a timer using setTimeout()
+// setTimeout(function() {
+//   console.log("Timer expired!");
+// }, 2000); // Wait 5 seconds before executing the function
+
+// Start a timer using setInterval()
+let count = 0;
+const timerInterval = setInterval(function() {
+  count++;
+  console.log(`Timer count: ${count}`);
+}, 1000); // Execute the function every 1 second
+
+
+// // Stop the timer after 10 seconds
+// setTimeout(function() {
+//   clearInterval(timerInterval);
+//   console.log("Timer stopped.");
+// }, 3000); // Wait 10 seconds before stopping the timer
+  }
+</script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+
+<!-- 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.min.js" integrity="sha512-1TCjsgfYd9edJ4mO6sb8rLzhnGpnFR4GazDGVhDekHrOHU7y7vcqGiO+4yW0HIDBoIY/ocbM/BrXxg8dYO6wSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.common.js" integrity="sha512-4hUaJWN/rHC4pxBD5A0cQQ/slU72g5WFx1JGcAzgj1jxG+6VezKFPhGd5Ux3kj8jMbjJD6VwLH/iqxchmYs9hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.common.min.js" integrity="sha512-m9IXlqEyY1+J+iTvyF5uPJFrFV5Ud95XO7WgPX2nsZdz/Z90E8DFFGETw8D/4/KWPdsrKAhnLxd6X7Dydy9+hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.css" integrity="sha512-xWnbrcBaeWCqYtkiyHlwpQyAUM3mc7cJWO4VFWXy4gel3LG5ZOvS517+FbCGdAtCXaaLmHwc+2U8Bz3eeJUNTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.esm.js" integrity="sha512-UOrkdNTKmLU2hGvTMZB3i3NjO/IT1LnZkPazqmvVJFvjrO99OcNoU5MXUklWtsLoGaLrw2yfiEUuR+DMhac9CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.esm.min.js" integrity="sha512-ZsvMh0saX7AcJ/gDNIyIrakOTG19I37aGosDxee55ZjF6I5n+ac+2/4oBv/3U9LEHiEU2jL8bUgwO+wic0rxMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.js" integrity="sha512-WY0GAT5E+eid0uMMu9rnF0cwEr17YTi6hwcj26RLR3aEHB3ecmeYmSOIdw++YyRYDvV65B47fz0niqfaluOjqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.min.css" integrity="sha512-9EosEckNJFma9X2uo5ysGPhVf/dcZTuZUBVW2A9QcWBd0HAx6zs+FK+wsBGhl91uFfDI4ZY+/7MVhtYU4tXEig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ -->
+
+
+
+</body>
+
+</html>

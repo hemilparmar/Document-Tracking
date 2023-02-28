@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML code for the page -->
+    <h1>PDF Viewer</h1>
+    <div id="pdf-viewer"><!-- HTML code for the page -->
+        <iframe src="test.pdf" width="100%" height="700"></iframe>
+        </div>
+
+    <!-- Include the PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+    <!-- JavaScript code to render the PDF file in the web page -->
+    <script>
+      // Load the PDF file from the server
+      PDFJS.getDocument("test.pdf").then(function (pdf) {
+        // Iterate over each page of the PDF file
+        for (var i = 1; i <= pdf.numPages; i++) {
+          // Get the page object for the current page
+          console.log(i)
+          pdf.getPage(i).then(function (page) {
+            // Get the dimensions of the page
+            var viewport = page.getViewport({ scale: 1.0 });
+            console.log(viewport)
+            // Create a canvas element to render the page
+            var canvas = document.createElement("canvas");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            // Get the canvas context and set the scale
+            var context = canvas.getContext("2d");
+            context.scale(1.0, 1.0);
+            // Render the page on the canvas
+            var renderContext = {
+              canvasContext: context,
+              viewport: viewport,
+            };
+            page.render(renderContext).then(function () {
+              // Convert the canvas element to an image and add it to the page
+              var img = new Image();
+              img.src = canvas.toDataURL("image/png");
+              document.getElementById("pdf-viewer").appendChild(img);
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

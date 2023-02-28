@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container my-4">
+        <h6 id="pdf"><embed src="page_1.pdf" width="100%" height="600"></h6>
+        
+            <center>
+            <button onclick="left()">Previous page</button>
+            <button onclick="right()">Next Page</button>
+            </center>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script>
+    var arr = {
+  page: 1,
+  count: 0,
+};
+
+var timerInterval;
+let page = 0;
+
+function show() {
+  console.log(arr);
+}
+
+function stop() {
+  clearInterval(timerInterval);
+}
+
+function timer() {
+  let count = 0;
+
+  timerInterval = setInterval(function () {
+    count = count + 1;
+    console.log(`page_${page} Timer count: ${count}`);
+    return count;
+  }, 1000, count);
+  
+ 
+}
+
+function right() {
+  stop();
+  page = page + 1;
+  console.log("Right:", page);
+  document.getElementById(
+    "pdf"
+  ).innerHTML = `<embed src="page_${page}.pdf" width="100%" height="600">`;
+
+  timer();
+}
+
+function left() {
+  stop();
+  page = page - 1;
+  console.log("Left:", page);
+  document.getElementById(
+    "pdf"
+  ).innerHTML = `<embed src="page_${page}.pdf" width="100%" height="600">`;
+
+  if (page < 1) {
+    page = 0;
+    document.getElementById(
+      "pdf"
+    ).innerHTML = `<embed src="page_1.pdf" width="100%" height="600">`;
+  }
+
+  timer();
+}
+
+</script>
+
+</body>
+</html>
