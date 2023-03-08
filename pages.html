@@ -29,6 +29,11 @@
   var dimensionValue = 'hp123';
 gtag('set', {'dimension1': dimensionValue});
   gtag('set', 'dimension1', dimensionValue);
+  
+  gtag("send", "pageview", {
+        dimension1: dimensionValue,
+      });
+  
 </script>
 
     
