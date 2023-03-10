@@ -25,16 +25,23 @@
  gtag('js', new Date());
 
  gtag('config', 'UA-258296521-1');
- gtag('set', {'user_id': 'hp123'}); // Set the user ID using signed-in user_id.
-  
-var dimensionValue = 'hp123';
-gtag('set', {'dimension1': dimensionValue});
-   gtag('set', 'dimension1', dimensionValue);
-  
-  gtag("send", "pageview", {
+ function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      var dimensionValue = `hp${getRandomInt(0, 1000)}`;
+      gtag("set", "dimension1", dimensionValue);
+      gtag("set", { user_id: dimensionValue }); // Set the user ID using signed-in user_id.
+      gtag("set", "userId", dimensionValue); // Set the custom user ID
+
+      gtag("set", "UserID", dimensionValue); // Set the custom user ID
+
+      gtag("send", "pageview", {
         dimension1: dimensionValue,
       });
-  gtag("event", "page_view");
+      gtag("event", "page_view");
 
  </script>  
 
